@@ -8,9 +8,9 @@ export function initializer(Keycloak: KeycloakService): () => Promise<any>
         await Keycloak.init(
           {
             config: {
-              url:"",
-              realm:"",
-              clientId:""
+              url:"http://localhost:8080/auth",
+              realm:"Test",
+              clientId:"todo-ui"
             },
         loadUserProfileAtStartUp: false,
             initOptions: {
@@ -21,11 +21,10 @@ export function initializer(Keycloak: KeycloakService): () => Promise<any>
           }
         );
         resolve();
-      }
-      catch (error) {
+      } catch (error) {
         reject(error);
       }
-    })
-  }
+    });
+  };
 }
 
